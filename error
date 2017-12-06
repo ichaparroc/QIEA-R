@@ -1,0 +1,10 @@
+main.cpp: In function ‘void print_Q_C_fit(std::vector<std::vector<std::vector<double> > >&, std::vector<std::vector<double> >&, std::vector<double>&)’:
+main.cpp:100:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int j=0;j<Q_t[0].size();j++)
+               ~^~~~~~~~~~~~~~
+main.cpp:102:40: error: unable to find string literal operator ‘operator""Q_t’ with ‘const char [3]’, ‘unsigned int’ arguments
+    cout<<endl<<"\tQ"<<i<<","<<j<<": "<<"o="Q_t[i][j][0]<<" u="<<Q_t[i][j][1];
+                                        ^~~~~~~
+main.cpp:105:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int j=0;j<C_t[0].size();j++)
+               ~^~~~~~~~~~~~~~
