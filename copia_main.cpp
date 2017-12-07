@@ -137,7 +137,7 @@ int main(int argc,char **argv)
 {
 
 	int T_POB=20,N_DIM=2,U_LIM=10,L_LIM=-10,N_GEN=100;
-	double P_CRO=0.5,P_UD=1,DELTA=0.82;
+	double P_CRO=0.5,P_UD=1;
 
 	double best_fit_t,best_fit_t_1,best_global;
 	int best_pos=0; //elitism does that the best are in the first position ever
@@ -281,21 +281,20 @@ int main(int argc,char **argv)
         if(random<P_UD && t!=0)
         {
             //Pulse width adjustment (sigma) -- Rule 1/5th
+            double delta=dist_01(rng);
             int counter = 0;
 
             for(int i=0;i<T_POB;i++) //Josimar Chire's Strategy (he have a extitive gap generational)
 				if(fit_t[i]<best_fit_t_1)
 					counter++;
-
             double phi=(double)counter/T_POB;
 			cout<<endl<<"phi"<<phi;
-
-			double mul_fact=1.0;
+			double mul_fact = 1.0;
 
             if(phi<0.2)
-                mul_fact=DELTA;
+                mul_fact=delta;
             else if(phi>0.2)
-                mul_fact=1.0/DELTA;
+                mul_fact=1.0/delta;
 
 			cout<<endl<<"mul_fact="<<mul_fact;
 
